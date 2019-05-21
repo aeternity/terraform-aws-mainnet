@@ -1,0 +1,168 @@
+version: 2.1
+executors:
+  infrastructure_container:
+    docker:
+      - image: aeternity/infrastructure
+    working_directory: /src
+
+commands:
+  setup_secrets:
+    steps:
+      - run:
+          name: Setup environment secrets
+          command: cd /infrastructure && make secrets SECRETS_OUTPUT_DIR=/secrets
+
+  terraform_init:
+    parameters:
+      path:
+        type: string
+        default: "."
+      lock_timeout:
+        type: string
+        default: "5m"
+    steps:
+      - run:
+          name: Terraform init
+          command: |
+            envdir /secrets terraform init -lock-timeout=<< parameters.lock_timeout >> << parameters.path >>
+
+  terraform_validate:
+    description: Format check and validate. Requires init.
+    parameters:
+      path:
+        type: string
+        default: "."
+    steps:
+      - run:
+          name: Terraform format check
+          command: |
+            terraform fmt -check=true -diff=true << parameters.path >>
+      - run:
+          name: Terraform validate
+          command: |
+            terraform validate -var vault_addr=dummy << parameters.path >>
+
+  terraform_plan:
+    parameters:
+      path:
+        type: string
+        default: "."
+      parallelism:
+        type: integer
+        default: 20
+      lock_timeout:
+        type: string
+        default: "5m"
+      plans_workspace:
+        type: string
+        default: /tmp/plans
+      out:
+        type: string
+        default: /tmp/plans/plan.out
+    steps:
+      - run:
+          name: Terraform plan
+          command: |
+            mkdir -p $(dirname "<< parameters.out >>")
+            envdir /secrets terraform plan \
+              -lock-timeout=<< parameters.lock_timeout >> \
+              -parallelism=<< parameters.parallelism >> \
+              -out=<< parameters.out >> \
+              -var vault_addr=${VAULT_ADDR:?} \
+              << parameters.path >>
+      - persist_to_workspace:
+          root: << parameters.plans_workspace >>
+          paths:
+            - "*.*"
+
+  terraform_apply:
+    parameters:
+      plans_workspace:
+        type: string
+        default: /tmp/plans
+      path:
+        type: string
+        default: "/tmp/plans/plan.out"
+      auto_approve:
+        type: boolean
+        default: false
+      parallelism:
+        type: integer
+        default: 20
+      lock_timeout:
+        type: string
+        default: "5m"
+    steps:
+      - attach_workspace:
+          at: << parameters.plans_workspace >>
+      - run:
+          name: Terraform apply
+          command: |
+            TF_ARGS=""
+            if [ "<< parameters.auto_approve >>" = "true" ]; then
+                TF_ARGS="$TF_ARGS -auto-approve"
+            fi
+            envdir /secrets terraform apply \
+              -lock-timeout=<< parameters.lock_timeout >> \
+              -parallelism=<< parameters.parallelism >> \
+              $TF_ARGS \
+              << parameters.path >>
+
+jobs:
+  validate_and_plan:
+    executor: infrastructure_container
+    steps:
+      - checkout
+      - setup_secrets
+      - terraform_init
+      - terraform_validate
+      - terraform_plan
+  plan:
+    executor: infrastructure_container
+    steps:
+      - checkout
+      - setup_secrets
+      - terraform_init
+      - terraform_plan
+  apply:
+    executor: infrastructure_container
+    steps:
+      - checkout
+      - setup_secrets
+      - terraform_init
+      - terraform_apply
+
+workflows:
+  test:
+    jobs:
+      - validate_and_plan:
+          context: ae-infra-manage
+          requires: []
+          filters:
+            branches:
+              ignore: master
+
+  deploy:
+    jobs:
+      - plan:
+          context: ae-infra-manage
+          requires: []
+          filters:
+            branches:
+              only: master
+
+      - hodl:
+          type: approval
+          requires: []
+          filters:
+            branches:
+              only: master
+
+      - apply:
+          context: ae-infra-manage
+          requires:
+            - plan
+            - hodl
+          filters:
+            branches:
+              only: master
