@@ -1,7 +1,7 @@
 module "aws_deploy-main-ap-southeast-1" {
   source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v1.0.0"
   env               = "main"
-  bootstrap_version = "v2.0.1"
+  bootstrap_version = "${var.bootstrap_version}"
   vault_role        = "ae-node"
   vault_addr        = "${var.vault_addr}"
 
@@ -17,7 +17,7 @@ module "aws_deploy-main-ap-southeast-1" {
   additional_storage_size = 30
 
   aeternity = {
-    package = "https://releases.ops.aeternity.com/aeternity-2.4.0-ubuntu-x86_64.tar.gz"
+    package = "${var.package}"
   }
 
   providers = {
@@ -28,7 +28,7 @@ module "aws_deploy-main-ap-southeast-1" {
 module "aws_deploy-main-eu-north-1" {
   source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v1.0.0"
   env               = "main"
-  bootstrap_version = "v2.0.1"
+  bootstrap_version = "${var.bootstrap_version}"
   vault_role        = "ae-node"
   vault_addr        = "${var.vault_addr}"
 
@@ -44,7 +44,7 @@ module "aws_deploy-main-eu-north-1" {
   additional_storage_size = 30
 
   aeternity = {
-    package = "https://releases.ops.aeternity.com/aeternity-2.4.0-ubuntu-x86_64.tar.gz"
+    package = "${var.package}"
   }
 
   providers = {
@@ -57,7 +57,7 @@ module "aws_deploy-main-eu-north-1" {
 module "aws_deploy-main-us-west-2" {
   source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v1.0.0"
   env               = "main"
-  bootstrap_version = "v2.0.1"
+  bootstrap_version = "${var.bootstrap_version}"
   vault_role        = "ae-node"
   vault_addr        = "${var.vault_addr}"
 
@@ -73,7 +73,7 @@ module "aws_deploy-main-us-west-2" {
   additional_storage_size = 30
 
   aeternity = {
-    package = "https://releases.ops.aeternity.com/aeternity-2.4.0-ubuntu-x86_64.tar.gz"
+    package = "${var.package}"
   }
 
   providers = {
@@ -84,7 +84,7 @@ module "aws_deploy-main-us-west-2" {
 module "aws_deploy-main-us-east-2" {
   source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v1.0.0"
   env               = "main"
-  bootstrap_version = "v2.0.1"
+  bootstrap_version = "${var.bootstrap_version}"
   vault_role        = "ae-node"
   vault_addr        = "${var.vault_addr}"
 
@@ -100,7 +100,7 @@ module "aws_deploy-main-us-east-2" {
   additional_storage_size = 30
 
   aeternity = {
-    package = "https://releases.ops.aeternity.com/aeternity-2.4.0-ubuntu-x86_64.tar.gz"
+    package = "${var.package}"
   }
 
   providers = {
