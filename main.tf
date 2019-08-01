@@ -115,7 +115,6 @@ module "aws_deploy-main-us-east-2" {
 module "aws_deploy-main_mon-ap-southeast-1" {
   source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.0.0"
   env               = "main_mon"
-  color             = "blue"
   bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
   vault_addr        = var.vault_addr
@@ -142,7 +141,6 @@ module "aws_deploy-main_mon-ap-southeast-1" {
 module "aws_deploy-main_mon-us-west-2" {
   source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.0.0"
   env               = "main_mon"
-  color             = "blue"
   bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
   vault_addr        = var.vault_addr
@@ -169,7 +167,6 @@ module "aws_deploy-main_mon-us-west-2" {
 module "aws_deploy-main_mon-us-east-2" {
   source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.0.0"
   env               = "main_mon"
-  color             = "blue"
   bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
   vault_addr        = var.vault_addr
@@ -196,7 +193,6 @@ module "aws_deploy-main_mon-us-east-2" {
 module "aws_deploy-main_mon-eu-north-1" {
   source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.0.0"
   env               = "main_mon"
-  color             = "blue"
   bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
   vault_addr        = var.vault_addr
