@@ -127,7 +127,7 @@ module "aws_deploy-main_mon-ap-southeast-1" {
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
-  additional_storage_size = 30
+  additional_storage_size = 40
   snapshot_filename       = "mnesia_main_v-1_latest.gz"
 
   aeternity = {
@@ -154,7 +154,7 @@ module "aws_deploy-main_mon-us-west-2" {
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
-  additional_storage_size = 30
+  additional_storage_size = 40
   snapshot_filename       = "mnesia_main_v-1_latest.gz"
 
   aeternity = {
@@ -181,7 +181,7 @@ module "aws_deploy-main_mon-us-east-2" {
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
-  additional_storage_size = 30
+  additional_storage_size = 40
   snapshot_filename       = "mnesia_main_v-1_latest.gz"
 
   aeternity = {
@@ -208,7 +208,7 @@ module "aws_deploy-main_mon-eu-north-1" {
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
-  additional_storage_size = 30
+  additional_storage_size = 40
   snapshot_filename       = "mnesia_main_v-1_latest.gz"
 
   aeternity = {
