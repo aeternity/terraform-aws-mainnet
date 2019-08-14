@@ -128,7 +128,7 @@ module "aws_deploy-main_mon-ap-southeast-1" {
 
   additional_storage      = true
   additional_storage_size = 40
-  snapshot_filename       = "mnesia_main_v-1_latest.gz"
+  snapshot_filename       = "mnesia_main_v-1_latest.tgz"
 
   aeternity = {
     package = var.package
@@ -155,7 +155,7 @@ module "aws_deploy-main_mon-us-west-2" {
 
   additional_storage      = true
   additional_storage_size = 40
-  snapshot_filename       = "mnesia_main_v-1_latest.gz"
+  snapshot_filename       = "mnesia_main_v-1_latest.tgz"
 
   aeternity = {
     package = var.package
@@ -182,7 +182,7 @@ module "aws_deploy-main_mon-us-east-2" {
 
   additional_storage      = true
   additional_storage_size = 40
-  snapshot_filename       = "mnesia_main_v-1_latest.gz"
+  snapshot_filename       = "mnesia_main_v-1_latest.tgz"
 
   aeternity = {
     package = var.package
@@ -209,7 +209,7 @@ module "aws_deploy-main_mon-eu-north-1" {
 
   additional_storage      = true
   additional_storage_size = 40
-  snapshot_filename       = "mnesia_main_v-1_latest.gz"
+  snapshot_filename       = "mnesia_main_v-1_latest.tgz"
 
   aeternity = {
     package = var.package
