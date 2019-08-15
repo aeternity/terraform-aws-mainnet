@@ -7,5 +7,5 @@ variable "bootstrap_version" {
 }
 
 variable "package" {
-  default = "https://releases.ops.aeternity.com/aeternity-4.1.0-ubuntu-x86_64.tar.gz"
+  default = "https://releases.ops.aeternity.com/aeternity-4.2.0-ubuntu-x86_64.tar.gz"
 }
