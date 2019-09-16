@@ -14,7 +14,7 @@ module "aws_deploy-main-ap-southeast-1" {
   root_volume_size = 40
 
   additional_storage      = 1
-  additional_storage_size = 30
+  additional_storage_size = 100
 
   aeternity = {
     package = var.package
@@ -41,7 +41,7 @@ module "aws_deploy-main-eu-north-1" {
   root_volume_size = 40
 
   additional_storage      = 1
-  additional_storage_size = 30
+  additional_storage_size = 100
 
   aeternity = {
     package = var.package
@@ -70,7 +70,7 @@ module "aws_deploy-main-us-west-2" {
   root_volume_size = 40
 
   additional_storage      = 1
-  additional_storage_size = 30
+  additional_storage_size = 100
 
   aeternity = {
     package = var.package
@@ -97,7 +97,7 @@ module "aws_deploy-main-us-east-2" {
   root_volume_size = 40
 
   additional_storage      = 1
-  additional_storage_size = 30
+  additional_storage_size = 100
 
   aeternity = {
     package = var.package
