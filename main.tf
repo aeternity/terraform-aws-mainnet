@@ -113,7 +113,7 @@ module "aws_deploy-main-us-east-2" {
 # Monitoring nodes
 
 module "aws_deploy-main_mon-ap-southeast-1" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.1.0"
+  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.3.0"
   env               = "main_mon"
   bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
@@ -127,7 +127,7 @@ module "aws_deploy-main_mon-ap-southeast-1" {
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
-  additional_storage_size = 40
+  additional_storage_size = 100
   snapshot_filename       = "mnesia_main_v-1_latest.tgz"
 
   aeternity = {
@@ -140,7 +140,7 @@ module "aws_deploy-main_mon-ap-southeast-1" {
 }
 
 module "aws_deploy-main_mon-us-west-2" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.1.0"
+  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.3.0"
   env               = "main_mon"
   bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
@@ -154,7 +154,7 @@ module "aws_deploy-main_mon-us-west-2" {
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
-  additional_storage_size = 40
+  additional_storage_size = 100
   snapshot_filename       = "mnesia_main_v-1_latest.tgz"
 
   aeternity = {
@@ -167,7 +167,7 @@ module "aws_deploy-main_mon-us-west-2" {
 }
 
 module "aws_deploy-main_mon-us-east-2" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.1.0"
+  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.3.0"
   env               = "main_mon"
   bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
@@ -181,7 +181,7 @@ module "aws_deploy-main_mon-us-east-2" {
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
-  additional_storage_size = 40
+  additional_storage_size = 100
   snapshot_filename       = "mnesia_main_v-1_latest.tgz"
 
   aeternity = {
@@ -194,7 +194,7 @@ module "aws_deploy-main_mon-us-east-2" {
 }
 
 module "aws_deploy-main_mon-eu-north-1" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.1.0"
+  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.3.0"
   env               = "main_mon"
   bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
@@ -208,7 +208,7 @@ module "aws_deploy-main_mon-eu-north-1" {
   ami_name      = "aeternity-ubuntu-16.04-v1549009934"
 
   additional_storage      = true
-  additional_storage_size = 40
+  additional_storage_size = 100
   snapshot_filename       = "mnesia_main_v-1_latest.tgz"
 
   aeternity = {
