@@ -118,6 +118,7 @@ module "aws_deploy-main_mon-ap-southeast-1" {
   bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
   vault_addr        = var.vault_addr
+  node_config       = "secret/aenode/config/main_mon@ap-southeast-1"
 
   spot_nodes_min = 1
   spot_nodes_max = 1
@@ -145,6 +146,7 @@ module "aws_deploy-main_mon-us-west-2" {
   bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
   vault_addr        = var.vault_addr
+  node_config       = "secret/aenode/config/main_mon@us-west-2"
 
   spot_nodes_min = 1
   spot_nodes_max = 1
@@ -172,6 +174,7 @@ module "aws_deploy-main_mon-us-east-2" {
   bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
   vault_addr        = var.vault_addr
+  node_config       = "secret/aenode/config/main_mon@us-east-2"
 
   spot_nodes_min = 1
   spot_nodes_max = 1
@@ -199,6 +202,7 @@ module "aws_deploy-main_mon-eu-north-1" {
   bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
   vault_addr        = var.vault_addr
+  node_config       = "secret/aenode/config/main_mon@eu-north-1"
 
   spot_nodes_min = 1
   spot_nodes_max = 1
