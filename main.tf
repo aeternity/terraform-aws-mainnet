@@ -5,7 +5,7 @@ module "aws_deploy-main-ap-southeast-1" {
   vault_role        = "ae-node"
   vault_addr        = var.vault_addr
 
-  static_nodes = 10
+  static_nodes     = 10
   spot_price       = "0.15"
   instance_type    = "t3.large"
   ami_name         = "aeternity-ubuntu-16.04-v1549009934"
@@ -31,7 +31,7 @@ module "aws_deploy-main-eu-north-1" {
   vault_role        = "ae-node"
   vault_addr        = var.vault_addr
 
-  static_nodes = 10
+  static_nodes     = 10
   spot_price       = "0.15"
   instance_type    = "t3.large"
   ami_name         = "aeternity-ubuntu-16.04-v1549009934"
@@ -57,7 +57,7 @@ module "aws_deploy-main-us-west-2" {
   vault_role        = "ae-node"
   vault_addr        = var.vault_addr
 
-  static_nodes = 10
+  static_nodes     = 10
   spot_price       = "0.15"
   instance_type    = "t3.large"
   ami_name         = "aeternity-ubuntu-16.04-v1549009934"
@@ -83,7 +83,7 @@ module "aws_deploy-main-us-east-2" {
   vault_role        = "ae-node"
   vault_addr        = var.vault_addr
 
-  static_nodes = 10
+  static_nodes     = 10
   spot_price       = "0.15"
   instance_type    = "t3.large"
   ami_name         = "aeternity-ubuntu-16.04-v1549009934"
