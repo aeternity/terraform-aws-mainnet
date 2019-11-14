@@ -221,8 +221,9 @@ module "aws_deploy-main_mon-eu-north-1" {
 }
 
 module "aws_deploy-main_backup-eu-central-1" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.3.1"
-  env               = "main_backup"
+  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.4.0"
+  env               = "main"
+  kind              = "backup"
   bootstrap_version = var.bootstrap_version
   vault_role        = "ae-node"
   vault_addr        = var.vault_addr
