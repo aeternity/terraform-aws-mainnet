@@ -245,7 +245,7 @@ module "aws_deploy-main_backup-eu-central-1" {
   }
 
   providers = {
-    aws = "aws.eu-central-1"
+    aws = "aws.eu-north-1"
   }
 }
 
