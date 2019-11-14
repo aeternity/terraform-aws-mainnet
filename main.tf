@@ -215,27 +215,3 @@ module "aws_deploy-main_mon-eu-north-1" {
     aws = "aws.eu-north-1"
   }
 }
-
-resource "null_resource" "ips1" {
-  triggers = {
-    depends_on = "${join(",", module.aws_deploy-main-ap-southeast-1.static_node_ips)}"
-  }
-}
-
-resource "null_resource" "ips2" {
-  triggers = {
-    depends_on = "${join(",", module.aws_deploy-main-eu-north-1.static_node_ips)}"
-  }
-}
-
-resource "null_resource" "ips3" {
-  triggers = {
-    depends_on = "${join(",", module.aws_deploy-main-us-west-2.static_node_ips)}"
-  }
-}
-
-resource "null_resource" "ips4" {
-  triggers = {
-    depends_on = "${join(",", module.aws_deploy-main-us-east-2.static_node_ips)}"
-  }
-}
