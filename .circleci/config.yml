@@ -72,7 +72,7 @@ commands:
               << parameters.path >> | tee terraform-plan-info
 
             export TERRAFORM_PLAN_INFO=`cat terraform-plan-info | grep Plan: | sed 's/\x1b\[[0-9;]*[a-zA-Z]//g'`
-            curl -X POST \
+            curl -sSX POST \
               -H "Authorization: token ${GITHUB_TOKEN}" \
               -d '{
                 "state": "success",
@@ -80,7 +80,7 @@ commands:
                 "description": "'"${TERRAFORM_PLAN_INFO}"'",
                 "context": "terraform plan"
               }' \
-              https://api.github.com/repos/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/statuses/${CIRCLE_SHA1}
+              https://api.github.com/repos/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/statuses/${CIRCLE_SHA1} > /dev/null
       - persist_to_workspace:
           root: << parameters.plans_workspace >>
           paths:
