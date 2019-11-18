@@ -72,7 +72,7 @@ commands:
               << parameters.path >> | tee terraform-plan-info
 
             export TERRAFORM_PLAN_INFO=`cat terraform-plan-info | grep Plan: | sed 's/\x1b\[[0-9;]*[a-zA-Z]//g'`
-            curl -sX POST \
+            curl -sSX POST \
               -H "Authorization: token ${GITHUB_TOKEN}" \
               -d '{
                 "state": "success",
