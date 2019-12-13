@@ -228,7 +228,7 @@ module "aws_deploy-main_mon-eu-north-1" {
   }
 }
 
-module "aws_deploy-main_backup-eu-central-1" {
+module "aws_deploy-main_backup-eu-north-1" {
   source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.4.0"
   env               = "main"
   kind              = "backup"
