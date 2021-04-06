@@ -257,35 +257,6 @@ module "aws_deploy-main_mon-eu-north-1" {
   }
 }
 
-module "aws_deploy-main_backup-eu-north-1" {
-  source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.4.0"
-  env               = "main"
-  kind              = "backup"
-  bootstrap_version = var.bootstrap_version
-  vault_role        = "ae-node"
-  vault_addr        = var.vault_addr
-  node_config       = "secret/aenode/config/main_backup"
-
-  spot_nodes_min = 1
-  spot_nodes_max = 1
-
-  spot_price    = "0.07"
-  instance_type = "t3.medium"
-  ami_name      = "aeternity-ubuntu-16.04-v1549009934"
-
-  additional_storage      = true
-  additional_storage_size = 200
-  snapshot_filename       = "empty"
-
-  aeternity = {
-    package = var.package
-  }
-
-  providers = {
-    aws = "aws.eu-north-1"
-  }
-}
-
 module "aws_deploy-main_backup_full-eu-north-1" {
   source            = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v2.5.0"
   env               = "main_backup"
