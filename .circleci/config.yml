@@ -68,7 +68,7 @@ commands:
               -lock-timeout=<< parameters.lock_timeout >> \
               -parallelism=<< parameters.parallelism >> \
               -out=<< parameters.out >> \
-              -var vault_addr=${VAULT_ADDR:?} tee terraform-plan-info
+              -var vault_addr=${VAULT_ADDR:?} | tee terraform-plan-info
 
             export TERRAFORM_PLAN_INFO=`cat terraform-plan-info | grep Plan: | sed 's/\x1b\[[0-9;]*[a-zA-Z]//g'`
             curl -sSX POST \
