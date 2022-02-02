@@ -2,7 +2,7 @@ version: 2.1
 executors:
   infrastructure_container:
     docker:
-      - image: aeternity/infrastructure:v2.12.3
+      - image: aeternity/infrastructure:v2.12.4
     working_directory: /src
 
 commands:
@@ -24,7 +24,7 @@ commands:
       - run:
           name: Terraform init
           command: |
-            envdir /secrets terraform init -lock-timeout=<< parameters.lock_timeout >> << parameters.path >>
+            envdir /secrets terraform -chdir=<< parameters.path >> init -lock-timeout=<< parameters.lock_timeout >>
 
   terraform_validate:
     description: Format check and validate. Requires init.
@@ -36,11 +36,11 @@ commands:
       - run:
           name: Terraform format check
           command: |
-            terraform fmt -check=true -diff=true << parameters.path >>
+            terraform -chdir=<< parameters.path >> fmt -check=true -diff=true
       - run:
           name: Terraform validate
           command: |
-            terraform validate -var vault_addr=dummy << parameters.path >>
+            terraform -chdir=<< parameters.path >> validate
 
   terraform_plan:
     parameters:
@@ -64,12 +64,11 @@ commands:
           name: Terraform plan
           command: |
             mkdir -p $(dirname "<< parameters.out >>")
-            envdir /secrets terraform plan \
+            envdir /secrets terraform -chdir=<< parameters.path >> plan \
               -lock-timeout=<< parameters.lock_timeout >> \
               -parallelism=<< parameters.parallelism >> \
               -out=<< parameters.out >> \
-              -var vault_addr=${VAULT_ADDR:?} \
-              << parameters.path >> | tee terraform-plan-info
+              -var vault_addr=${VAULT_ADDR:?} | tee terraform-plan-info
 
             export TERRAFORM_PLAN_INFO=`cat terraform-plan-info | grep Plan: | sed 's/\x1b\[[0-9;]*[a-zA-Z]//g'`
             curl -sSX POST \
@@ -113,11 +112,11 @@ commands:
             if [ "<< parameters.auto_approve >>" = "true" ]; then
                 TF_ARGS="$TF_ARGS -auto-approve"
             fi
-            envdir /secrets terraform apply \
+            envdir /secrets terraform -chdir=<< parameters.path >> apply \
               -lock-timeout=<< parameters.lock_timeout >> \
               -parallelism=<< parameters.parallelism >> \
-              $TF_ARGS \
-              << parameters.path >>
+              $TF_ARGS
+
 
 jobs:
   validate_and_plan:
