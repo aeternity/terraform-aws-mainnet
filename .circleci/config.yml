@@ -146,7 +146,7 @@ workflows:
   test:
     jobs:
       - validate_and_plan:
-          context: ae-infra-manage
+          context: ae-vault-infra
           requires: []
           filters:
             branches:
@@ -155,7 +155,7 @@ workflows:
   deploy:
     jobs:
       - plan:
-          context: ae-infra-manage
+          context: ae-vault-infra
           requires: []
           filters:
             branches:
@@ -169,7 +169,7 @@ workflows:
               only: master
 
       - apply:
-          context: ae-infra-manage
+          context: ae-vault-infra
           requires:
             - plan
             - hodl
