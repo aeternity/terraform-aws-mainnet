@@ -11,7 +11,7 @@ module "aws_deploy-main-ap-southeast-1" {
 
   spot_price       = "0.15"
   instance_type    = "t3.large"
-  ami_name         = "aeternity-ubuntu-18.04-v1616681631"
+  ami_name         = "aeternity-ubuntu-18.04-v1653564902"
   root_volume_size = 40
 
   additional_storage      = true
@@ -35,7 +35,7 @@ module "aws_deploy-main-eu-north-1" {
 
   spot_price       = "0.15"
   instance_type    = "t3.large"
-  ami_name         = "aeternity-ubuntu-18.04-v1616681631"
+  ami_name         = "aeternity-ubuntu-18.04-v1653564902"
   root_volume_size = 40
 
   additional_storage      = true
@@ -59,7 +59,7 @@ module "aws_deploy-main-us-west-2" {
 
   spot_price       = "0.15"
   instance_type    = "t3.large"
-  ami_name         = "aeternity-ubuntu-18.04-v1616681631"
+  ami_name         = "aeternity-ubuntu-18.04-v1653564902"
   root_volume_size = 40
 
   additional_storage      = true
@@ -83,7 +83,7 @@ module "aws_deploy-main-us-east-2" {
 
   spot_price       = "0.15"
   instance_type    = "t3.large"
-  ami_name         = "aeternity-ubuntu-18.04-v1616681631"
+  ami_name         = "aeternity-ubuntu-18.04-v1653564902"
   root_volume_size = 40
 
   additional_storage      = true
@@ -109,7 +109,7 @@ module "aws_deploy-main_mon-ap-southeast-1" {
 
   spot_price    = "0.07"
   instance_type = "t3.medium"
-  ami_name      = "aeternity-ubuntu-18.04-v1616681631"
+  ami_name      = "aeternity-ubuntu-18.04-v1653564902"
 
   additional_storage      = true
   additional_storage_size = 200
@@ -132,7 +132,7 @@ module "aws_deploy-main_mon-us-west-2" {
 
   spot_price    = "0.07"
   instance_type = "t3.medium"
-  ami_name      = "aeternity-ubuntu-18.04-v1616681631"
+  ami_name      = "aeternity-ubuntu-18.04-v1653564902"
 
   additional_storage      = true
   additional_storage_size = 200
@@ -155,7 +155,7 @@ module "aws_deploy-main_mon-us-east-2" {
 
   spot_price    = "0.07"
   instance_type = "t3.medium"
-  ami_name      = "aeternity-ubuntu-18.04-v1616681631"
+  ami_name      = "aeternity-ubuntu-18.04-v1653564902"
 
   additional_storage      = true
   additional_storage_size = 200
@@ -178,7 +178,7 @@ module "aws_deploy-main_mon-eu-north-1" {
 
   spot_price    = "0.07"
   instance_type = "t3.medium"
-  ami_name      = "aeternity-ubuntu-18.04-v1616681631"
+  ami_name      = "aeternity-ubuntu-18.04-v1653564902"
 
   additional_storage      = true
   additional_storage_size = 200
@@ -200,7 +200,7 @@ module "aws_deploy-main_backup_full-eu-north-1" {
   static_nodes            = 1
   spot_price              = "0.07"
   instance_type           = "t3.medium"
-  ami_name                = "aeternity-ubuntu-18.04-v1616681631"
+  ami_name                = "aeternity-ubuntu-18.04-v1653564902"
   additional_storage      = true
   additional_storage_size = 200
 
@@ -221,7 +221,7 @@ module "aws_deploy-main_backup_light-eu-north-1" {
   static_nodes            = 1
   spot_price              = "0.07"
   instance_type           = "t3.medium"
-  ami_name                = "aeternity-ubuntu-18.04-v1616681631"
+  ami_name                = "aeternity-ubuntu-18.04-v1653564902"
   additional_storage      = true
   additional_storage_size = 200
 

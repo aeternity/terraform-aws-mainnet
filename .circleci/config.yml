@@ -58,7 +58,7 @@ commands:
         default: /tmp/plans
       out:
         type: string
-        default: /tmp/plans/plan.out
+        default: plan.out
     steps:
       - run:
           name: Terraform plan
@@ -81,18 +81,18 @@ commands:
               }' \
               https://api.github.com/repos/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/statuses/${CIRCLE_SHA1} > /dev/null
       - persist_to_workspace:
-          root: << parameters.plans_workspace >>
+          root: << parameters.path >>
           paths:
-            - "*.*"
+            - "*.out"
 
   terraform_apply:
     parameters:
-      plans_workspace:
-        type: string
-        default: /tmp/plans
       path:
         type: string
-        default: "/tmp/plans/plan.out"
+        default: "."
+      out:
+        type: string
+        default: "plan.out"
       auto_approve:
         type: boolean
         default: false
@@ -104,7 +104,7 @@ commands:
         default: "5m"
     steps:
       - attach_workspace:
-          at: << parameters.plans_workspace >>
+          at: << parameters.path >>
       - run:
           name: Terraform apply
           command: |
@@ -115,8 +115,8 @@ commands:
             envdir /secrets terraform -chdir=<< parameters.path >> apply \
               -lock-timeout=<< parameters.lock_timeout >> \
               -parallelism=<< parameters.parallelism >> \
+              << parameters.out >> \
               $TF_ARGS
-
 
 jobs:
   validate_and_plan:
