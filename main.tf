@@ -181,7 +181,7 @@ module "aws_deploy-main_mon-eu-north-1" {
   ami_name      = "aeternity-ubuntu-18.04-v1653564902"
 
   additional_storage      = true
-  additional_storage_size = 200
+  additional_storage_size = 1000
 
   providers = {
     aws = aws.eu-north-1
