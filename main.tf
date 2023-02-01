@@ -223,7 +223,7 @@ module "aws_deploy-main_backup_light-eu-north-1" {
   instance_type           = "t3.medium"
   ami_name                = "aeternity-ubuntu-18.04-v1653564902"
   additional_storage      = true
-  additional_storage_size = 200
+  additional_storage_size = 1000
 
   providers = {
     aws = aws.eu-north-1
