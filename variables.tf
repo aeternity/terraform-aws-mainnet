@@ -3,9 +3,5 @@ variable "vault_addr" {
 }
 
 variable "bootstrap_version" {
-  default = "v2.13.2"
-}
-
-variable "package" {
-  default = "https://releases.aeternity.io/aeternity-5.5.4-ubuntu-x86_64.tar.gz"
+  default = "v2.13.3"
 }
