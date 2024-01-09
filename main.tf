@@ -3,8 +3,8 @@ module "aws_deploy-main-ap-southeast-1" {
   env    = "main"
 
   static_nodes   = 3
-  spot_nodes_min = 3
-  spot_nodes_max = 3
+  spot_nodes_min = 1
+  spot_nodes_max = 1
 
   instance_type  = "c6i.large"
   instance_types = ["c6i.large", "c5.large", "m5.large", "t3.large"]
@@ -36,8 +36,8 @@ module "aws_deploy-main-eu-north-1" {
   env    = "main"
 
   static_nodes   = 3
-  spot_nodes_min = 3
-  spot_nodes_max = 3
+  spot_nodes_min = 1
+  spot_nodes_max = 1
 
   instance_type  = "t3.large"
   instance_types = ["t3.large", "c5.large", "m5.large"]
@@ -69,8 +69,8 @@ module "aws_deploy-main-us-west-2" {
   env    = "main"
 
   static_nodes   = 3
-  spot_nodes_min = 3
-  spot_nodes_max = 3
+  spot_nodes_min = 1
+  spot_nodes_max = 1
 
   instance_type  = "t3.large"
   instance_types = ["t3.large", "c5.large", "c6i.large"]
@@ -102,8 +102,8 @@ module "aws_deploy-main-us-east-2" {
   env    = "main"
 
   static_nodes   = 3
-  spot_nodes_min = 3
-  spot_nodes_max = 3
+  spot_nodes_min = 1
+  spot_nodes_max = 1
 
   instance_type  = "t3.large"
   instance_types = ["t3.large", "c5.large", "c6i.large"]
