@@ -166,7 +166,7 @@ module "aws_deploy-main_backup_full-eu-north-1" {
   instance_types = ["t3.medium", "t3.large", "c5.large", "m5.large"]
   ami_name       = "aeternity-ubuntu-22.04-v1709639419"
 
-  root_volume_size        = 8
+  root_volume_size        = 24
   additional_storage      = true
   additional_storage_size = 1000
 
@@ -198,7 +198,7 @@ module "aws_deploy-main_backup_light-eu-north-1" {
   instance_types = ["t3.medium", "t3.large", "c5.large", "m5.large"]
   ami_name       = "aeternity-ubuntu-22.04-v1709639419"
 
-  root_volume_size        = 8
+  root_volume_size        = 24
   additional_storage      = true
   additional_storage_size = 1000
 
