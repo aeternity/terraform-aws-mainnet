@@ -2,7 +2,7 @@ version: 2.1
 executors:
   infrastructure_container:
     docker:
-      - image: aeternity/infrastructure:v2.12.4
+      - image: aeternity/infrastructure:v4.3.0
     working_directory: /src
 
 commands:
