@@ -3,5 +3,5 @@ variable "vault_addr" {
 }
 
 variable "bootstrap_version" {
-  default = "v4.2.0"
+  default = "v4.3.0"
 }
