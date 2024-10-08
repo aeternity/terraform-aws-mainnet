@@ -1,8 +1,8 @@
 module "aws_deploy-main-ap-southeast-1" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.4.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "main"
 
-  static_nodes   = 3
+  static_nodes = 3
 
   instance_type  = "c6i.large"
   instance_types = ["c6i.large", "c5.large", "m5.large", "t3.large"]
@@ -30,10 +30,10 @@ module "aws_deploy-main-ap-southeast-1" {
 }
 
 module "aws_deploy-main-eu-north-1" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.4.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "main"
 
-  static_nodes   = 3
+  static_nodes = 3
 
   instance_type  = "t3.large"
   instance_types = ["t3.large", "c5.large", "m5.large"]
@@ -61,10 +61,10 @@ module "aws_deploy-main-eu-north-1" {
 }
 
 module "aws_deploy-main-us-west-2" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.4.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "main"
 
-  static_nodes   = 3
+  static_nodes = 3
 
   instance_type  = "t3.large"
   instance_types = ["t3.large", "c5.large", "c6i.large"]
@@ -92,10 +92,10 @@ module "aws_deploy-main-us-west-2" {
 }
 
 module "aws_deploy-main-us-east-2" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.4.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "main"
 
-  static_nodes   = 3
+  static_nodes = 3
 
   instance_type  = "t3.large"
   instance_types = ["t3.large", "c5.large", "c6i.large"]
@@ -125,7 +125,7 @@ module "aws_deploy-main-us-east-2" {
 # Monitoring nodes
 
 module "aws_deploy-main_mon-eu-north-1" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.4.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "main_mon"
 
   spot_nodes_min = 1
@@ -157,7 +157,7 @@ module "aws_deploy-main_mon-eu-north-1" {
 }
 
 module "aws_deploy-main_backup_full-eu-north-1" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.4.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "main_backup"
 
   static_nodes = 1
@@ -189,7 +189,7 @@ module "aws_deploy-main_backup_full-eu-north-1" {
 }
 
 module "aws_deploy-main_backup_light-eu-north-1" {
-  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v3.4.0"
+  source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "main_backup"
 
   static_nodes = 1
