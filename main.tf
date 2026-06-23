@@ -128,8 +128,7 @@ module "aws_deploy-main_mon-eu-north-1" {
   source = "github.com/aeternity/terraform-aws-aenode-deploy?ref=v4.0.0"
   env    = "main_mon"
 
-  spot_nodes_min = 1
-  spot_nodes_max = 1
+  static_nodes = 1
 
   instance_type  = "t3.medium"
   instance_types = ["t3.medium", "t3.large", "c5.large", "m5.large"]
@@ -137,7 +136,7 @@ module "aws_deploy-main_mon-eu-north-1" {
 
   root_volume_size        = 40
   additional_storage      = true
-  additional_storage_size = 200
+  additional_storage_size = 400
 
   tags = {
     role = "aenode"
