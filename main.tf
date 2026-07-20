@@ -35,8 +35,11 @@ module "aws_deploy-main-eu-north-1" {
 
   static_nodes = 3
 
-  instance_type  = "t3.large"
-  instance_types = ["t3.large", "c5.large", "m5.large"]
+  # 2026-07-20: t3.large -> m6i.large (fixed-perf, was hitting CPUCreditBalance=0 under load;
+  # see ~/aeternity/gitops-all/mpt-cache-pr4623-investigation.md §6). m6i.large keeps 8GiB mem
+  # (vs c6i.large's 4GiB) to leave headroom for a possible future MPT read cache.
+  instance_type  = "m6i.large"
+  instance_types = ["m6i.large", "c6i.large", "c5.large", "m5.large"]
   ami_name       = "aeternity-ubuntu-22.04-v1709639419"
 
   root_volume_size        = 40
@@ -66,8 +69,10 @@ module "aws_deploy-main-us-west-2" {
 
   static_nodes = 3
 
-  instance_type  = "t3.large"
-  instance_types = ["t3.large", "c5.large", "c6i.large"]
+  # 2026-07-20: t3.large -> m6i.large — two of these three nodes (35.166.231.86, 52.11.110.179)
+  # already hit CPUCreditBalance=0 (hard-throttled) this week. See gitops-all investigation doc.
+  instance_type  = "m6i.large"
+  instance_types = ["m6i.large", "c6i.large", "c5.large"]
   ami_name       = "aeternity-ubuntu-22.04-v1709639419"
 
   root_volume_size        = 40
@@ -130,8 +135,10 @@ module "aws_deploy-main_mon-eu-north-1" {
 
   static_nodes = 1
 
-  instance_type  = "t3.medium"
-  instance_types = ["t3.medium", "t3.large", "c5.large", "m5.large"]
+  # 2026-07-20: t3.medium -> m6i.large. Declining CPUCreditBalance trend (not yet at 0) per
+  # gitops-all investigation doc; fixed before it hits the same wall as uat_mon.
+  instance_type  = "m6i.large"
+  instance_types = ["m6i.large", "c6i.large", "c5.large", "m5.large"]
   ami_name       = "aeternity-ubuntu-22.04-v1709639419"
 
   root_volume_size        = 40
